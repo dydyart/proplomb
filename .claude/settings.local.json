@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find \"C:/Users/vegas/Downloads/SITES CLAUDE GITHUB\" -type f -name \"*.json\" -o -name \"*.toml\" -o -name \"Gemfile\" 2>/dev/null | grep -v \".git\" | grep -v \"__pycache__\" | sort)",
+      "Bash(find \"C:/Users/vegas/Downloads/SITES CLAUDE GITHUB/PLOMBIER 1\" -type f 2>/dev/null | grep -v \".git\" | sort)",
+      "Bash(not exist *)"
+    ]
+  }
+}

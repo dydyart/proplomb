@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plombier Paris | Dépannage & Rénovation — ProPlomb Services</title>
+  <meta name="description" content="ProPlomb Services, votre plombier de confiance à Paris. Intervention urgente 24h/24, devis gratuit, travail garanti. Qualibat, RGE, Assurance Décennale." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://proplomb-paris.fr/" />
+  <meta property="og:title" content="Plombier Paris | Dépannage & Rénovation — ProPlomb Services" />
+  <meta property="og:description" content="Votre plombier de confiance à Paris. Intervention rapide 24h/24, devis gratuit, travail garanti." />
+  <meta property="og:url" content="https://proplomb-paris.fr/" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1920" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"LocalBusiness",
+    "name":"ProPlomb Services","telephone":"06 12 34 56 78",
+    "description":"Plombier chauffagiste à Paris — dépannage urgent 24h/24, installation sanitaire, rénovation salle de bain.",
+    "address":{"@type":"PostalAddress","addressLocality":"Paris","addressCountry":"FR"},
+    "image":"https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1920"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #1a56db;
+      --color-secondary: #ffffff;
+      --color-accent: #1a56db;
+      --color-bg: #ffffff;
+      --color-text: #111827;
+      --button-radius: 9999px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--color-bg); color: var(--color-text); -webkit-font-smoothing: antialiased; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+    /* --- NAVBAR --- */
+    .header-nav     { display: flex; align-items: center; }
+    .header-cta     { display: inline-flex; align-items: center; gap: 8px;
+                      padding: 8px 20px; font-size: 13px; font-weight: 600;
+                      background-color: var(--color-primary); color: var(--color-secondary);
+                      border-radius: var(--button-radius); text-decoration: none;
+                      white-space: nowrap; }
+    .header-cta .cta-label { display: inline; }
+    .header-burger  { display: none; width: 40px; height: 40px; align-items: center;
+                      justify-content: center; border-radius: 50%; background: transparent;
+                      border: none; cursor: pointer; color: var(--color-text);
+                      margin-left: 8px; font-size: 20px; transition: opacity .2s; }
+    .header-burger:hover { opacity: .7; }
+
+    /* Menu drawer */
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      border-top: 1px solid transparent;
+    }
+    #mobile-menu.open {
+      max-height: 420px;
+      border-top-color: color-mix(in srgb, var(--color-text) 8%, transparent);
+    }
+    #mobile-menu a { display: block; padding: 14px 20px; font-size: 15px; font-weight: 500;
+                     color: var(--color-text); text-decoration: none;
+                     border-bottom: 1px solid color-mix(in srgb, var(--color-text) 6%, transparent);
+                     transition: background .15s; }
+    #mobile-menu a:last-child { border-bottom: none; }
+    #mobile-menu a:hover { background: color-mix(in srgb, var(--color-text) 4%, transparent); }
+    #mobile-menu .menu-cta-mobile {
+      margin: 12px 20px 16px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 24px; font-size: 14px; font-weight: 600;
+      background-color: var(--color-primary); color: var(--color-secondary);
+      border-radius: var(--button-radius); text-decoration: none; border-bottom: none !important;
+    }
+    #mobile-menu .menu-cta-mobile:hover { opacity: .9; background: color-mix(in srgb, var(--color-primary) 90%, black) !important; }
+
+    /* Tablet : on cache les liens nav, on garde le bouton court */
+    @media (max-width: 1024px) {
+      .header-nav { display: none; }
+      .header-burger { display: flex; }
+    }
+    /* Sur tablette, raccourcir le label CTA */
+    @media (max-width: 1024px) and (min-width: 481px) {
+      .header-cta .cta-label { display: none; }
+      .header-cta { padding: 8px 14px; gap: 0; }
+    }
+    /* Mobile : cacher aussi le bouton CTA header (barre fixe bas suffit) */
+    @media (max-width: 480px) {
+      .header-cta { display: none; }
+    }
+
+    /* --- RESTE DU RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr !important; }
+      .footer-grid { grid-template-columns: 1fr 1fr !important; }
+    }
+    @media (max-width: 640px) {
+      .services-grid {
+        display: flex !important;
+        overflow-x: auto;
+        gap: 20px;
+        padding-bottom: 8px;
+        scroll-snap-type: x mandatory;
+      }
+      .service-card { width: 75vw !important; flex-shrink: 0; scroll-snap-align: start; }
+      .gallery-grid { display: flex !important; overflow-x: auto; gap: 12px; padding-bottom: 8px; }
+      .gallery-item { width: 78vw !important; flex-shrink: 0; }
+      .footer-grid { grid-template-columns: 1fr !important; }
+      .mobile-cta-bar { display: flex !important; }
+      .mobile-spacer { display: block !important; }
+      .reviews-grid { display: flex !important; overflow-x: auto; gap: 16px; padding-bottom: 8px; }
+      .review-card { width: 80vw !important; flex-shrink: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     1. HEADER FIXE
+     ============================================================ -->
+<header style="position:fixed; top:0; left:0; right:0; z-index:50;
+  background-color:color-mix(in srgb, var(--color-bg) 85%, transparent);
+  backdrop-filter:blur(20px) saturate(1.2);
+  border-bottom:1px solid transparent; transition:border-color 0.3s;">
+
+  <!-- Barre principale -->
+  <div style="max-width:1152px; margin:0 auto; display:flex;
+    align-items:center; height:72px; padding:0 20px;">
+
+    <!-- Logo -->
+    <a href="#" style="font-size:17px; font-weight:700; letter-spacing:-0.02em;
+      color:var(--color-text); text-decoration:none; flex-shrink:0;">
+      ProPlomb Services
+    </a>
+
+    <!-- Nav desktop -->
+    <nav class="header-nav" style="gap:0;">
+      <a href="#services" style="padding:8px 14px; font-size:13px; font-weight:500;
+        color:color-mix(in srgb, var(--color-text) 65%, transparent); text-decoration:none;">Services</a>
+      <a href="#a-propos" style="padding:8px 14px; font-size:13px; font-weight:500;
+        color:color-mix(in srgb, var(--color-text) 65%, transparent); text-decoration:none;">À propos</a>
+      <a href="#avis" style="padding:8px 14px; font-size:13px; font-weight:500;
+        color:color-mix(in srgb, var(--color-text) 65%, transparent); text-decoration:none;">Avis</a>
+      <a href="#galerie" style="padding:8px 14px; font-size:13px; font-weight:500;
+        color:color-mix(in srgb, var(--color-text) 65%, transparent); text-decoration:none;">Galerie</a>
+      <a href="#faq" style="padding:8px 14px; font-size:13px; font-weight:500;
+        color:color-mix(in srgb, var(--color-text) 65%, transparent); text-decoration:none;">FAQ</a>
+    </nav>
+
+    <!-- Groupe droit : toujours collé à droite -->
+    <div style="margin-left:auto; display:flex; align-items:center; gap:8px;">
+      <!-- CTA : label masqué sur tablette, tout masqué sur mobile -->
+      <a href="tel:0612345678" class="header-cta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.57a16 16 0 0 0 5.91 5.91l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        <span class="cta-label">Demander un devis gratuit</span>
+      </a>
+
+      <!-- Burger (visible ≤ 1024px) -->
+      <button class="header-burger" id="burger" aria-label="Menu" aria-expanded="false"
+        onclick="toggleMenu(this)">&#9776;</button>
+    </div>
+  </div>
+
+  <!-- Drawer mobile -->
+  <div id="mobile-menu">
+    <a href="#services"  onclick="closeMenu()">Services</a>
+    <a href="#a-propos"  onclick="closeMenu()">À propos</a>
+    <a href="#avis"      onclick="closeMenu()">Avis clients</a>
+    <a href="#galerie"   onclick="closeMenu()">Galerie</a>
+    <a href="#faq"       onclick="closeMenu()">FAQ</a>
+    <a href="tel:0612345678" class="menu-cta-mobile" onclick="closeMenu()">
+      &#128222;&nbsp; 06 12 34 56 78 — Devis gratuit
+    </a>
+  </div>
+</header>
+
+<!-- ============================================================
+     2. HERO FULLSCREEN
+     ============================================================ -->
+<section style="position:relative; min-height:100svh; display:flex;
+  align-items:center; justify-content:center; overflow:hidden;">
+  <div style="position:absolute; inset:0; transform:scale(1.1);
+    background-color:var(--color-primary);">
+    <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1920&q=80"
+      alt="Plombier Paris — ProPlomb Services"
+      style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" />
+  </div>
+  <div style="position:absolute; inset:0; background:rgba(0,0,0,0.52);"></div>
+  <div style="position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(0,0,0,0.6), transparent, rgba(0,0,0,0.2));"></div>
+
+  <div style="position:relative; z-index:10; max-width:896px; width:100%;
+    padding:0 20px; text-align:center;">
+
+    <div class="hero-badge" style="display:inline-flex; align-items:center; gap:8px;
+      border-radius:9999px; border:1px solid rgba(255,255,255,0.15);
+      padding:6px 16px; backdrop-filter:blur(4px);
+      background:rgba(255,255,255,0.08);
+      opacity:0; transform:translateY(16px); transition:all 1s ease;">
+      <span style="width:6px; height:6px; border-radius:50%;
+        background-color:#60a5fa; display:inline-block;"></span>
+      <span style="font-size:11px; font-weight:500; text-transform:uppercase;
+        letter-spacing:0.15em; color:rgba(255,255,255,0.85);">
+        Qualibat &middot; RGE &middot; Disponible 24h/24
+      </span>
+    </div>
+
+    <h1 class="hero-h1" style="margin-top:24px;
+      font-size:clamp(1.75rem, 5vw, 3.5rem); font-weight:700;
+      line-height:1.1; letter-spacing:-0.02em; color:white;
+      opacity:0; transform:translateY(32px);
+      transition:all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;">
+      Une fuite qui s'aggrave et personne ne répond&nbsp;?
+    </h1>
+
+    <p class="hero-tagline" style="margin:20px auto 0; max-width:672px;
+      font-size:clamp(15px, 2vw, 18px); line-height:1.6; color:rgba(255,255,255,0.62);
+      opacity:0; transform:translateY(24px);
+      transition:all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;">
+      ProPlomb arrive en moins d'une heure à Paris — 7j/7. Prix fixé avant de commencer, travail garanti Qualibat. 500+ clients soulagés.
+    </p>
+
+    <div class="hero-cta" style="margin-top:32px; display:flex; flex-wrap:wrap;
+      align-items:center; justify-content:center; gap:12px;
+      opacity:0; transform:translateY(20px);
+      transition:all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;">
+      <a href="tel:0612345678" style="display:inline-flex; align-items:center;
+        gap:10px; padding:14px 32px; font-size:15px; font-weight:600;
+        background:#ffffff; color:#0a0a0a;
+        border-radius:var(--button-radius); text-decoration:none;">
+        &#128222; Appeler — réponse immédiate
+      </a>
+      <a href="#galerie" style="display:inline-flex; align-items:center;
+        gap:8px; padding:14px 32px; font-size:15px; font-weight:600;
+        background:rgba(255,255,255,0.15); color:white;
+        border-radius:var(--button-radius); backdrop-filter:blur(4px);
+        text-decoration:none;">Voir 500+ réalisations ↓</a>
+    </div>
+  </div>
+
+  <div class="hero-arrow" style="position:absolute; bottom:32px; left:50%;
+    transform:translateX(-50%); display:flex; flex-direction:column;
+    align-items:center; gap:8px; opacity:0; transition:opacity 1s ease 1.2s;">
+    <span style="font-size:10px; font-weight:500; text-transform:uppercase;
+      letter-spacing:0.2em; color:rgba(255,255,255,0.7);">Découvrir</span>
+    <span style="color:rgba(255,255,255,0.7); font-size:18px;">&#8595;</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     3. À PROPOS
+     ============================================================ -->
+<section id="a-propos" style="padding:80px 0; background-color:var(--color-bg);">
+  <div style="max-width:1152px; margin:0 auto; padding:0 20px;">
+    <div class="about-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
+      <div>
+        <span style="font-size:12px; font-weight:700; text-transform:uppercase;
+          letter-spacing:0.2em; color:var(--color-primary);">À propos</span>
+        <h2 style="margin-top:16px; font-size:clamp(1.5rem, 3vw, 2.25rem);
+          font-weight:700; letter-spacing:-0.02em; color:var(--color-text);">
+          ProPlomb Services
+        </h2>
+        <div style="margin-top:16px; height:2px; width:40px; background-color:var(--color-primary);"></div>
+
+        <div style="margin-top:20px; display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="display:inline-flex; align-items:center; gap:6px;
+            border-radius:6px; padding:4px 10px; font-size:12px; font-weight:500;
+            background-color:color-mix(in srgb, var(--color-primary) 6%, var(--color-bg));
+            color:color-mix(in srgb, var(--color-text) 65%, transparent);">
+            <span style="color:var(--color-primary);">&#10003;</span> RGE
+          </span>
+          <span style="display:inline-flex; align-items:center; gap:6px;
+            border-radius:6px; padding:4px 10px; font-size:12px; font-weight:500;
+            background-color:color-mix(in srgb, var(--color-primary) 6%, var(--color-bg));
+            color:color-mix(in srgb, var(--color-text) 65%, transparent);">
+            <span style="color:var(--color-primary);">&#10003;</span> Qualibat
+          </span>
+          <span style="display:inline-flex; align-items:center; gap:6px;
+            border-radius:6px; padding:4px 10px; font-size:12px; font-weight:500;
+            background-color:color-mix(in srgb, var(--color-primary) 6%, var(--color-bg));
+            color:color-mix(in srgb, var(--color-text) 65%, transparent);">
+            <span style="color:var(--color-primary);">&#10003;</span> Assurance Décennale
+          </span>
+        </div>
+
+        <p style="margin-top:24px; font-size:15px; line-height:1.8;
+          color:color-mix(in srgb, var(--color-text) 60%, transparent);">
+          Depuis plus de 15 ans, ProPlomb Services intervient auprès des particuliers et des professionnels parisiens pour tous leurs besoins en plomberie et chauffage.
+
+Notre équipe de plombiers qualifiés et certifiés met tout en œuvre pour vous offrir un service rapide, propre et durable. Que ce soit pour une urgence ou un projet de rénovation, nous vous garantissons un travail soigné aux normes en vigueur.
+
+Nous sommes certifiés RGE et Qualibat, et couverts par une assurance décennale complète pour vous offrir toutes les garanties nécessaires. Votre satisfaction est notre priorité absolue.
+        </p>
+
+        <div style="margin-top:32px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+          <a href="tel:0612345678" style="display:inline-flex; align-items:center;
+            gap:10px; padding:12px 28px; font-size:14px; font-weight:600;
+            background-color:var(--color-primary); color:var(--color-secondary);
+            border-radius:var(--button-radius); text-decoration:none;">
+            Demander un devis gratuit
+          </a>
+          <a href="#services" style="display:inline-flex; align-items:center;
+            gap:8px; font-size:14px; font-weight:600;
+            color:var(--color-primary); text-decoration:none;">
+            Découvrir nos services &#8594;
+          </a>
+        </div>
+      </div>
+
+      <div style="position:relative; overflow:hidden; border-radius:12px; aspect-ratio:4/3;">
+        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80"
+          alt="Plombier en intervention — ProPlomb Services"
+          style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. STATS
+     ============================================================ -->
+<section id="chiffres" style="padding:56px 0; background-color:var(--color-primary);">
+  <div style="max-width:960px; margin:0 auto; padding:0 20px;">
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr;">
+      <div style="display:flex; flex-direction:column; align-items:center;
+        text-align:center; padding:24px 16px;">
+        <span style="font-size:clamp(1.5rem, 4vw, 2.25rem); font-weight:700;
+          color:var(--color-secondary);">
+          <span class="counter" data-target="500" data-suffix="+">0</span>
+        </span>
+        <span style="margin-top:8px; font-size:11px; font-weight:500;
+          text-transform:uppercase; letter-spacing:0.1em;
+          color:color-mix(in srgb, var(--color-secondary) 60%, transparent);">
+          Interventions réalisées
+        </span>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center;
+        text-align:center; padding:24px 16px;
+        border-left:1px solid color-mix(in srgb, var(--color-secondary) 20%, var(--color-primary));">
+        <span style="font-size:clamp(1.5rem, 4vw, 2.25rem); font-weight:700;
+          color:var(--color-secondary);">
+          <span class="counter" data-target="15" data-suffix=" ans">0</span>
+        </span>
+        <span style="margin-top:8px; font-size:11px; font-weight:500;
+          text-transform:uppercase; letter-spacing:0.1em;
+          color:color-mix(in srgb, var(--color-secondary) 60%, transparent);">
+          D'expérience
+        </span>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center;
+        text-align:center; padding:24px 16px;
+        border-left:1px solid color-mix(in srgb, var(--color-secondary) 20%, var(--color-primary));">
+        <span style="font-size:clamp(1.5rem, 4vw, 2.25rem); font-weight:700;
+          color:var(--color-secondary);">
+          4.8<span style="font-size:1.2rem;">/5</span>
+        </span>
+        <span style="margin-top:8px; font-size:11px; font-weight:500;
+          text-transform:uppercase; letter-spacing:0.1em;
+          color:color-mix(in srgb, var(--color-secondary) 60%, transparent);">
+          Satisfaction client
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. SERVICES
+     ============================================================ -->
+<section id="services" style="padding:80px 0; background-color:var(--color-bg);">
+  <div style="max-width:1152px; margin:0 auto; padding:0 20px;">
+    <div style="text-align:center;">
+      <span style="font-size:12px; font-weight:700; text-transform:uppercase;
+        letter-spacing:0.2em; color:var(--color-primary);">Ce que nous proposons</span>
+      <h2 style="margin-top:16px; font-size:clamp(1.5rem, 3vw, 2.25rem);
+        font-weight:700; color:var(--color-text);">Nos services</h2>
+      <div style="margin:20px auto 0; height:2px; width:40px; background-color:var(--color-primary);"></div>
+    </div>
+
+    <div class="services-grid" style="margin-top:48px; display:grid;
+      grid-template-columns:repeat(3,1fr); gap:20px;">
+
+      <!-- Service 1 -->
+      <div class="service-card" style="display:flex; flex-direction:column;
+        overflow:hidden; border-radius:12px;
+        border:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+        background-color:var(--color-bg);">
+        <div style="position:relative; aspect-ratio:16/10; overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+            alt="Dépannage urgent plomberie Paris"
+            loading="lazy"
+            style="position:absolute; inset:0; width:100%; height:100%;
+            object-fit:cover; transition:transform 0.5s;"
+            onmouseover="this.style.transform='scale(1.05)'"
+            onmouseout="this.style.transform='scale(1)'" />
+        </div>
+        <div style="padding:20px 24px; flex:1;">
+          <h3 style="font-size:16px; font-weight:700; color:var(--color-text);">
+            Dépannage urgent 24h/24
+          </h3>
+          <p style="margin-top:10px; font-size:14px; line-height:1.6;
+            color:color-mix(in srgb, var(--color-text) 55%, transparent);">
+            Fuite d'eau, canalisation bouchée, chauffe-eau en panne… Nous intervenons dans les plus brefs délais, 7j/7 y compris les week-ends et jours fériés.
+          </p>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card" style="display:flex; flex-direction:column;
+        overflow:hidden; border-radius:12px;
+        border:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+        background-color:var(--color-bg);">
+        <div style="position:relative; aspect-ratio:16/10; overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80"
+            alt="Installation sanitaire Paris"
+            loading="lazy"
+            style="position:absolute; inset:0; width:100%; height:100%;
+            object-fit:cover; transition:transform 0.5s;"
+            onmouseover="this.style.transform='scale(1.05)'"
+            onmouseout="this.style.transform='scale(1)'" />
+        </div>
+        <div style="padding:20px 24px; flex:1;">
+          <h3 style="font-size:16px; font-weight:700; color:var(--color-text);">
+            Installation sanitaire complète
+          </h3>
+          <p style="margin-top:10px; font-size:14px; line-height:1.6;
+            color:color-mix(in srgb, var(--color-text) 55%, transparent);">
+            Pose de baignoire, douche, lavabo, WC, robinetterie et chauffe-eau. Nous réalisons vos installations avec des équipements de qualité pour un résultat durable.
+          </p>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card" style="display:flex; flex-direction:column;
+        overflow:hidden; border-radius:12px;
+        border:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+        background-color:var(--color-bg);">
+        <div style="position:relative; aspect-ratio:16/10; overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80"
+            alt="Rénovation salle de bain Paris"
+            loading="lazy"
+            style="position:absolute; inset:0; width:100%; height:100%;
+            object-fit:cover; transition:transform 0.5s;"
+            onmouseover="this.style.transform='scale(1.05)'"
+            onmouseout="this.style.transform='scale(1)'" />
+        </div>
+        <div style="padding:20px 24px; flex:1;">
+          <h3 style="font-size:16px; font-weight:700; color:var(--color-text);">
+            Rénovation salle de bain
+          </h3>
+          <p style="margin-top:10px; font-size:14px; line-height:1.6;
+            color:color-mix(in srgb, var(--color-text) 55%, transparent);">
+            Transformez votre salle de bain en un espace moderne et fonctionnel. Conception, carrelage, plomberie : nous gérons votre projet de A à Z, dans les délais convenus.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:56px; display:flex; justify-content:center;">
+      <a href="tel:0612345678" style="display:inline-flex; align-items:center;
+        gap:10px; padding:14px 28px; font-size:14px; font-weight:600;
+        background-color:var(--color-primary); color:var(--color-secondary);
+        border-radius:var(--button-radius); text-decoration:none;">
+        Demander un devis gratuit &#8594;
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. AVIS CLIENTS
+     ============================================================ -->
+<section id="avis" style="padding:80px 0; background-color:var(--color-bg);">
+  <div style="max-width:1152px; margin:0 auto; padding:0 20px;">
+    <div style="display:flex; flex-direction:column; align-items:center; text-align:center;">
+      <span style="font-size:12px; font-weight:700; text-transform:uppercase;
+        letter-spacing:0.2em; color:var(--color-primary);">Témoignages</span>
+      <h2 style="margin-top:16px; font-size:clamp(1.5rem, 3vw, 2.25rem);
+        font-weight:700; color:var(--color-text);">Ce que disent nos clients</h2>
+      <div style="margin-top:20px; height:2px; width:40px; background-color:var(--color-primary);"></div>
+
+      <div style="margin-top:24px; display:flex; align-items:center; gap:10px;">
+        <svg width="20" height="20" viewBox="0 0 24 24">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        <span style="color:#FBBC05; font-size:16px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span style="font-size:12px; color:color-mix(in srgb, var(--color-text) 50%, transparent);">
+          4.8/5 &mdash; 127 avis Google
+        </span>
+      </div>
+    </div>
+
+    <div class="reviews-grid" style="margin-top:48px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+
+      <!-- Avis 1 -->
+      <div class="review-card" style="border-radius:12px;
+        border:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+        padding:24px; background-color:var(--color-bg);">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:36px; height:36px; border-radius:50%; flex-shrink:0;
+            display:flex; align-items:center; justify-content:center;
+            font-size:12px; font-weight:700;
+            background-color:color-mix(in srgb, var(--color-primary) 10%, transparent);
+            color:var(--color-primary);">S</div>
+          <div style="flex:1; min-width:0;">
+            <p style="font-size:14px; font-weight:600; color:var(--color-text);">Sophie M.</p>
+            <span style="color:#FBBC05; font-size:11px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <svg width="14" height="14" viewBox="0 0 24 24" style="opacity:0.3; flex-shrink:0;">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+        </div>
+        <p style="margin-top:16px; font-size:14px; line-height:1.6;
+          color:color-mix(in srgb, var(--color-text) 65%, transparent);">
+          &laquo; Intervention ultra-rapide pour une fuite d'eau en cuisine. Professionnel, efficace et très propre après le chantier. Je recommande vivement ProPlomb ! &raquo;
+        </p>
+      </div>
+
+      <!-- Avis 2 -->
+      <div class="review-card" style="border-radius:12px;
+        border:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+        padding:24px; background-color:var(--color-bg);">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:36px; height:36px; border-radius:50%; flex-shrink:0;
+            display:flex; align-items:center; justify-content:center;
+            font-size:12px; font-weight:700;
+            background-color:color-mix(in srgb, var(--color-primary) 10%, transparent);
+            color:var(--color-primary);">L</div>
+          <div style="flex:1; min-width:0;">
+            <p style="font-size:14px; font-weight:600; color:var(--color-text);">Laurent B.</p>
+            <span style="color:#FBBC05; font-size:11px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <svg width="14" height="14" viewBox="0 0 24 24" style="opacity:0.3; flex-shrink:0;">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+        </div>
+        <p style="margin-top:16px; font-size:14px; line-height:1.6;
+          color:color-mix(in srgb, var(--color-text) 65%, transparent);">
+          &laquo; Excellente rénovation complète de notre salle de bain. Travail vraiment soigné, délais respectés à la lettre et prix très honnête. Un grand merci à toute l'équipe ! &raquo;
+        </p>
+      </div>
+
+      <!-- Avis 3 -->
+      <div class="review-card" style="border-radius:12px;
+        border:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+        padding:24px; background-color:var(--color-bg);">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:36px; height:36px; border-radius:50%; flex-shrink:0;
+            display:flex; align-items:center; justify-content:center;
+            font-size:12px; font-weight:700;
+            background-color:color-mix(in srgb, var(--color-primary) 10%, transparent);
+            color:var(--color-primary);">M</div>
+          <div style="flex:1; min-width:0;">
+            <p style="font-size:14px; font-weight:600; color:var(--color-text);">Marie-Claire D.</p>
+            <span style="color:#FBBC05; font-size:11px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <svg width="14" height="14" viewBox="0 0 24 24" style="opacity:0.3; flex-shrink:0;">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+        </div>
+        <p style="margin-top:16px; font-size:14px; line-height:1.6;
+          color:color-mix(in srgb, var(--color-text) 65%, transparent);">
+          &laquo; Dépannage chauffe-eau un dimanche matin. Réponse immédiate, technicien sur place en 45 minutes, problème réglé en une heure. Service exceptionnel, merci ! &raquo;
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. GALERIE
+     ============================================================ -->
+<section id="galerie" style="padding:80px 0; background-color:var(--color-bg);">
+  <div style="max-width:1152px; margin:0 auto; padding:0 20px;">
+    <div style="text-align:center;">
+      <span style="font-size:12px; font-weight:700; text-transform:uppercase;
+        letter-spacing:0.2em; color:var(--color-primary);">Nos réalisations</span>
+      <h2 style="margin-top:16px; font-size:clamp(1.5rem, 3vw, 2.25rem);
+        font-weight:700; color:var(--color-text);">Galerie</h2>
+      <div style="margin:20px auto 0; height:2px; width:40px; background-color:var(--color-primary);"></div>
+    </div>
+
+    <div class="gallery-grid" style="margin-top:48px; display:grid;
+      grid-template-columns:repeat(3,1fr); gap:12px;">
+
+      <div class="gallery-item" style="position:relative; aspect-ratio:4/3;
+        overflow:hidden; border-radius:12px; cursor:pointer;">
+        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80"
+          alt="Rénovation salle de bain" loading="lazy"
+          style="position:absolute; inset:0; width:100%; height:100%;
+          object-fit:cover; transition:transform 0.5s;"
+          onmouseover="this.style.transform='scale(1.05)'"
+          onmouseout="this.style.transform='scale(1)'" />
+        <div style="position:absolute; inset:0; background:rgba(0,0,0,0); transition:background 0.3s;"
+          onmouseover="this.style.background='rgba(0,0,0,0.1)'"
+          onmouseout="this.style.background='rgba(0,0,0,0)'"></div>
+      </div>
+
+      <div class="gallery-item" style="position:relative; aspect-ratio:4/3;
+        overflow:hidden; border-radius:12px; cursor:pointer;">
+        <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=800&q=80"
+          alt="Installation robinetterie" loading="lazy"
+          style="position:absolute; inset:0; width:100%; height:100%;
+          object-fit:cover; transition:transform 0.5s;"
+          onmouseover="this.style.transform='scale(1.05)'"
+          onmouseout="this.style.transform='scale(1)'" />
+        <div style="position:absolute; inset:0; background:rgba(0,0,0,0); transition:background 0.3s;"
+          onmouseover="this.style.background='rgba(0,0,0,0.1)'"
+          onmouseout="this.style.background='rgba(0,0,0,0)'"></div>
+      </div>
+
+      <div class="gallery-item" style="position:relative; aspect-ratio:4/3;
+        overflow:hidden; border-radius:12px; cursor:pointer;">
+        <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=800&q=80"
+          alt="Salle de bain moderne" loading="lazy"
+          style="position:absolute; inset:0; width:100%; height:100%;
+          object-fit:cover; transition:transform 0.5s;"
+          onmouseover="this.style.transform='scale(1.05)'"
+          onmouseout="this.style.transform='scale(1)'" />
+        <div style="position:absolute; inset:0; background:rgba(0,0,0,0); transition:background 0.3s;"
+          onmouseover="this.style.background='rgba(0,0,0,0.1)'"
+          onmouseout="this.style.background='rgba(0,0,0,0)'"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. FAQ
+     ============================================================ -->
+<section id="faq" style="padding:80px 0; background-color:var(--color-bg);">
+  <div style="max-width:672px; margin:0 auto; padding:0 20px;">
+    <div style="text-align:center;">
+      <span style="font-size:12px; font-weight:700; text-transform:uppercase;
+        letter-spacing:0.2em; color:var(--color-primary);">FAQ</span>
+      <h2 style="margin-top:16px; font-size:clamp(1.5rem, 3vw, 2.25rem);
+        font-weight:700; color:var(--color-text);">Questions fréquentes</h2>
+      <div style="margin:20px auto 0; height:2px; width:40px; background-color:var(--color-primary);"></div>
+    </div>
+
+    <div style="margin-top:48px;">
+
+      <!-- Q1 -->
+      <div style="border-top:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);">
+        <button onclick="toggleFaq(this)" style="display:flex; width:100%;
+          align-items:center; justify-content:space-between; padding:20px 0;
+          text-align:left; background:none; border:none; cursor:pointer;">
+          <h3 style="font-size:15px; font-weight:600; color:var(--color-text); padding-right:16px;">
+            Intervenez-vous en urgence 24h/24 ?
+          </h3>
+          <span class="faq-icon" style="flex-shrink:0; color:var(--color-primary); font-size:18px;">+</span>
+        </button>
+        <div class="faq-answer" style="display:grid; grid-template-rows:0fr; transition:grid-template-rows 0.3s ease;">
+          <div style="overflow:hidden;">
+            <p style="padding-bottom:20px; font-size:14px; line-height:1.6;
+              color:color-mix(in srgb, var(--color-text) 60%, transparent);">
+              Oui, notre service d'urgence est disponible 7j/7, y compris les week-ends et jours fériés. Pour toute urgence plomberie (fuite d'eau, dégât des eaux, canalisation bouchée, chauffe-eau en panne), appelez-nous directement au 06 12 34 56 78.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div style="border-top:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);">
+        <button onclick="toggleFaq(this)" style="display:flex; width:100%;
+          align-items:center; justify-content:space-between; padding:20px 0;
+          text-align:left; background:none; border:none; cursor:pointer;">
+          <h3 style="font-size:15px; font-weight:600; color:var(--color-text); padding-right:16px;">
+            Le devis est-il vraiment gratuit ?
+          </h3>
+          <span class="faq-icon" style="flex-shrink:0; color:var(--color-primary); font-size:18px;">+</span>
+        </button>
+        <div class="faq-answer" style="display:grid; grid-template-rows:0fr; transition:grid-template-rows 0.3s ease;">
+          <div style="overflow:hidden;">
+            <p style="padding-bottom:20px; font-size:14px; line-height:1.6;
+              color:color-mix(in srgb, var(--color-text) 60%, transparent);">
+              Absolument ! Nous vous proposons des devis gratuits et sans engagement pour tous vos travaux de plomberie. Un technicien se déplace chez vous pour évaluer vos besoins et vous remet un devis détaillé et transparent sous 24h.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div style="border-top:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);">
+        <button onclick="toggleFaq(this)" style="display:flex; width:100%;
+          align-items:center; justify-content:space-between; padding:20px 0;
+          text-align:left; background:none; border:none; cursor:pointer;">
+          <h3 style="font-size:15px; font-weight:600; color:var(--color-text); padding-right:16px;">
+            Quelle garantie offrez-vous sur les travaux ?
+          </h3>
+          <span class="faq-icon" style="flex-shrink:0; color:var(--color-primary); font-size:18px;">+</span>
+        </button>
+        <div class="faq-answer" style="display:grid; grid-template-rows:0fr; transition:grid-template-rows 0.3s ease;">
+          <div style="overflow:hidden;">
+            <p style="padding-bottom:20px; font-size:14px; line-height:1.6;
+              color:color-mix(in srgb, var(--color-text) 60%, transparent);">
+              Tous nos travaux sont couverts par notre assurance décennale et une garantie de parfait achèvement. Nous utilisons uniquement des matériaux certifiés et nos interventions sont conformes aux normes NF et DTU en vigueur.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div style="border-top:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+        border-bottom:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);">
+        <button onclick="toggleFaq(this)" style="display:flex; width:100%;
+          align-items:center; justify-content:space-between; padding:20px 0;
+          text-align:left; background:none; border:none; cursor:pointer;">
+          <h3 style="font-size:15px; font-weight:600; color:var(--color-text); padding-right:16px;">
+            Quelle est votre zone d'intervention ?
+          </h3>
+          <span class="faq-icon" style="flex-shrink:0; color:var(--color-primary); font-size:18px;">+</span>
+        </button>
+        <div class="faq-answer" style="display:grid; grid-template-rows:0fr; transition:grid-template-rows 0.3s ease;">
+          <div style="overflow:hidden;">
+            <p style="padding-bottom:20px; font-size:14px; line-height:1.6;
+              color:color-mix(in srgb, var(--color-text) 60%, transparent);">
+              Nous intervenons sur tout Paris (75) et dans l'ensemble de l'Île-de-France : Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Essonne (91), Yvelines (78), Val-d'Oise (95) et Seine-et-Marne (77).
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9. FOOTER CTA
+     ============================================================ -->
+<div style="padding:80px 0; background-color:var(--color-bg);">
+  <div style="max-width:672px; margin:0 auto; padding:0 20px; text-align:center;">
+    <span style="font-size:12px; font-weight:700; text-transform:uppercase;
+      letter-spacing:0.2em; color:var(--color-primary);">Prenez contact</span>
+    <h2 style="margin-top:16px; font-size:clamp(1.5rem, 3vw, 2.25rem);
+      font-weight:700; color:var(--color-text);">Prêt à démarrer votre projet ?</h2>
+    <p style="margin-top:16px; font-size:15px; line-height:1.6;
+      color:color-mix(in srgb, var(--color-text) 55%, transparent);">
+      Plombier chauffagiste à Paris — Devis gratuit, intervention rapide 24h/24, 7j/7.
+    </p>
+    <a href="tel:0612345678" style="display:inline-flex; align-items:center; gap:10px;
+      margin-top:32px; padding:14px 32px; font-size:14px; font-weight:600;
+      background-color:var(--color-primary); color:var(--color-secondary);
+      border-radius:var(--button-radius); text-decoration:none;">
+      Demander un devis gratuit &#8594;
+    </a>
+  </div>
+</div>
+
+<!-- ============================================================
+     10. FOOTER DARK
+     ============================================================ -->
+<div style="background-color:color-mix(in srgb, var(--color-text) 97%, var(--color-bg));
+  border-top:1px solid color-mix(in srgb, var(--color-text) 90%, var(--color-bg));">
+  <div style="max-width:1152px; margin:0 auto; padding:48px 20px;">
+    <div class="footer-grid" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:40px;">
+      <div>
+        <h3 style="font-size:16px; font-weight:700;
+          color:color-mix(in srgb, var(--color-bg) 90%, var(--color-text));">
+          ProPlomb Services
+        </h3>
+        <p style="margin-top:12px; font-size:14px; line-height:1.6;
+          color:color-mix(in srgb, var(--color-bg) 40%, var(--color-text));">
+          Plombier chauffagiste à Paris — Devis gratuit, intervention rapide 24h/24, 7j/7.
+        </p>
+        <div style="margin-top:16px; display:flex; gap:8px;">
+          <span style="display:inline-flex; align-items:center; gap:4px;
+            border-radius:4px; padding:3px 8px; font-size:11px; font-weight:500;
+            background-color:rgba(255,255,255,0.08);
+            color:color-mix(in srgb, var(--color-bg) 50%, var(--color-text));">RGE</span>
+          <span style="display:inline-flex; align-items:center; gap:4px;
+            border-radius:4px; padding:3px 8px; font-size:11px; font-weight:500;
+            background-color:rgba(255,255,255,0.08);
+            color:color-mix(in srgb, var(--color-bg) 50%, var(--color-text));">Qualibat</span>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:11px; font-weight:600; text-transform:uppercase;
+          letter-spacing:0.1em;
+          color:color-mix(in srgb, var(--color-bg) 40%, var(--color-text));">Navigation</h4>
+        <nav style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
+          <a href="#services" style="font-size:14px; text-decoration:none;
+            color:color-mix(in srgb, var(--color-bg) 60%, var(--color-text));">Services</a>
+          <a href="#a-propos" style="font-size:14px; text-decoration:none;
+            color:color-mix(in srgb, var(--color-bg) 60%, var(--color-text));">À propos</a>
+          <a href="#avis" style="font-size:14px; text-decoration:none;
+            color:color-mix(in srgb, var(--color-bg) 60%, var(--color-text));">Avis clients</a>
+          <a href="#galerie" style="font-size:14px; text-decoration:none;
+            color:color-mix(in srgb, var(--color-bg) 60%, var(--color-text));">Galerie</a>
+          <a href="#faq" style="font-size:14px; text-decoration:none;
+            color:color-mix(in srgb, var(--color-bg) 60%, var(--color-text));">FAQ</a>
+        </nav>
+      </div>
+      <div>
+        <h4 style="font-size:11px; font-weight:600; text-transform:uppercase;
+          letter-spacing:0.1em;
+          color:color-mix(in srgb, var(--color-bg) 40%, var(--color-text));">Contact</h4>
+        <div style="margin-top:16px; display:flex; flex-direction:column; gap:12px;">
+          <span style="font-size:14px;
+            color:color-mix(in srgb, var(--color-bg) 60%, var(--color-text));">
+            &#128205; Paris & Île-de-France
+          </span>
+          <a href="tel:0612345678" style="font-size:14px; text-decoration:none;
+            color:color-mix(in srgb, var(--color-bg) 60%, var(--color-text));">
+            &#128222; 06 12 34 56 78
+          </a>
+          <span style="font-size:14px;
+            color:color-mix(in srgb, var(--color-bg) 60%, var(--color-text));">
+            &#9201; Urgences 24h/24 - 7j/7
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid color-mix(in srgb, var(--color-bg) 8%, var(--color-text));
+    padding:20px;">
+    <div style="max-width:1152px; margin:0 auto; display:flex;
+      justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+      <p style="font-size:11px;
+        color:color-mix(in srgb, var(--color-bg) 30%, var(--color-text));">
+        &copy; 2026 ProPlomb Services — Tous droits réservés
+      </p>
+      <p style="font-size:11px;
+        color:color-mix(in srgb, var(--color-bg) 20%, var(--color-text));">
+        Assurance Décennale &bull; SIRET 000 000 000 00000
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     11. BARRE MOBILE FIXE
+     ============================================================ -->
+<div class="mobile-cta-bar" style="position:fixed; bottom:0; left:0; right:0; z-index:50;
+  background-color:var(--color-primary);
+  border-top:1px solid color-mix(in srgb, var(--color-secondary) 15%, var(--color-primary));
+  display:none;">
+  <a href="tel:0612345678" style="display:flex; align-items:center; justify-content:center;
+    gap:8px; padding:14px 20px; font-size:14px; font-weight:600;
+    color:var(--color-secondary); text-decoration:none; width:100%;">
+    &#128222; Demander un devis gratuit
+  </a>
+</div>
+<div class="mobile-spacer" style="height:56px; display:none;"></div>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+// 1. Animations hero au chargement
+window.addEventListener('load', () => {
+  document.querySelectorAll('.hero-badge, .hero-h1, .hero-tagline, .hero-cta')
+    .forEach(el => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+  const arrow = document.querySelector('.hero-arrow');
+  if (arrow) arrow.style.opacity = '1';
+});
+
+// 2. Compteurs animés au scroll
+const counters = document.querySelectorAll('.counter');
+const cObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const target = parseInt(e.target.dataset.target);
+    const suffix = e.target.dataset.suffix || '+';
+    let cur = 0;
+    const step = Math.max(1, target / 60);
+    const t = setInterval(() => {
+      cur = Math.min(cur + step, target);
+      e.target.textContent = Math.floor(cur) + suffix;
+      if (cur >= target) clearInterval(t);
+    }, 25);
+    cObs.unobserve(e.target);
+  });
+}, { threshold: 0.3 });
+counters.forEach(c => cObs.observe(c));
+
+// 3. FAQ accordion
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const icon = btn.querySelector('.faq-icon');
+  const isOpen = answer.style.gridTemplateRows === '1fr';
+  document.querySelectorAll('.faq-answer').forEach(a => a.style.gridTemplateRows = '0fr');
+  document.querySelectorAll('.faq-icon').forEach(i => i.textContent = '+');
+  if (!isOpen) {
+    answer.style.gridTemplateRows = '1fr';
+    icon.textContent = '×';
+  }
+}
+
+// 4. Header scroll effect
+window.addEventListener('scroll', () => {
+  const h = document.querySelector('header');
+  if (h) {
+    if (window.scrollY > 20) {
+      h.style.borderBottomColor = 'color-mix(in srgb, var(--color-text) 8%, transparent)';
+    } else {
+      h.style.borderBottomColor = 'transparent';
+    }
+  }
+});
+
+// 5. Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// 6. Menu mobile
+function toggleMenu(btn) {
+  const menu = document.getElementById('mobile-menu');
+  const isOpen = menu.classList.contains('open');
+  if (isOpen) {
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '&#9776;';
+  } else {
+    menu.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.innerHTML = '&#10005;';
+  }
+}
+function closeMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('burger');
+  menu.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.innerHTML = '&#9776;';
+}
+</script>
+
+</body>
+</html>
