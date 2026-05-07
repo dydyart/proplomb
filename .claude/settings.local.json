@@ -3,7 +3,26 @@
     "allow": [
       "Bash(find \"C:/Users/vegas/Downloads/SITES CLAUDE GITHUB\" -type f -name \"*.json\" -o -name \"*.toml\" -o -name \"Gemfile\" 2>/dev/null | grep -v \".git\" | grep -v \"__pycache__\" | sort)",
       "Bash(find \"C:/Users/vegas/Downloads/SITES CLAUDE GITHUB/PLOMBIER 1\" -type f 2>/dev/null | grep -v \".git\" | sort)",
-      "Bash(not exist *)"
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git config *)",
+      "Bash(gh auth *)",
+      "Bash(gh repo *)",
+      "Bash(gh api *)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"C:/Users/vegas/Downloads/SITES CLAUDE GITHUB/ARTISAN SENDPAGE\" && git add -A && git diff --cached --quiet || git commit -m \"auto: mise a jour site\" && git push"
+          }
+        ]
+      }
     ]
   }
 }
